@@ -20,6 +20,13 @@ jobs:
           pytest --cov=. --cov-fail-under=90
           cat .coverage
         
+      - run: mkdir -p artifact
+      - run: echo hello > artifact/world.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: path/to/artifact/world.txt
+
       - name: Print coverage report to file
         run: echo "${{ steps.run-pytest.outputs.stdout }}" > coverage_report.txt
 
