@@ -19,7 +19,7 @@ jobs:
       - name: Run pytest
         run: pytest --cov=. --cov-fail-under=90
 
-  write coverage:
+  write-coverage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
