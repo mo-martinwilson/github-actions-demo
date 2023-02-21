@@ -17,19 +17,9 @@ jobs:
 
       - name: Run pytest 
         run: |
-          pytest --cov=. --cov-fail-under=90
+          pytest --cov=. --cov-fail-under=90 > coverage_report.txt
           cat .coverage
         
-      - run: mkdir -p artifact
-      - run: echo hello > artifact/world.txt
-      - uses: actions/upload-artifact@v3
-        with:
-          name: my-artifact
-          path: artifact/world.txt
-
-      - name: Print coverage report to file
-        run: echo "${{ steps.run-pytest.outputs.stdout }}" > coverage_report.txt
-
       - name: Upload coverage report
         uses: actions/upload-artifact@v2
         with:
