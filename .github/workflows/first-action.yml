@@ -1,13 +1,12 @@
 name: name of action
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches: '*'
+
 jobs:
-  newname:
+  pytest-coverage:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
@@ -16,24 +15,35 @@ jobs:
           python --version
           pip install -r requirements.txt
 
-      - name: Run pytest
-        run: pytest --cov=. --cov-fail-under=90
+      - name: Run pytest 
+        run: |
+          pytest --cov=. --cov-fail-under=90
+          cat .coverage
+        
+      - name: Print coverage report to file
+        run: echo "${{ steps.run-pytest.outputs.stdout }}" > coverage_report.txt
 
-      - name: Overwrite file
-        uses: "DamianReeves/write-file-action@master"
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
         with:
-          path: filename.txt
-          write-mode: overwrite
-          contents: |
-            console.log('some contents')
-            
-      - name: Commit & Push
-        uses: Andro999b/push@v1.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          force: true
-          message: 'Overwritten by Github Actions - ${date}'
+          name: pytest-coverage-report
+          path: coverage_report.txt
+
+      # - name: Overwrite file
+      #   uses: "DamianReeves/write-file-action@master"
+      #   with:
+      #     path: filename.txt
+      #     write-mode: overwrite
+      #     contents: |
+      #       console.log('some contents')
+
+      # - name: Commit & Push
+      #   uses: Andro999b/push@v1.3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: main
+      #     force: true
+      #     message: 'Overwritten by Github Actions - ${date}'
       # - name: commitit
       #   run: |
       #     git config --local user.email "martin.wilson@metoffice.gov.uk"
