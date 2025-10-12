@@ -1,0 +1,16 @@
+name: AAAActions Testing with tag mock
+
+permissions:
+  contents: read
+
+jobs:
+  setup-runner:
+    name: test setup runner
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pretend deploy to CI
+        run: echo "Wow, that was a quick deploy to CI!"
