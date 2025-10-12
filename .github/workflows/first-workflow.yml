@@ -3,6 +3,8 @@ name: AAAActions Testing with tag mock
 on:
   push:
     branches: '*'
+  workflow_dispatch:
+  # leave blank to allow manual deploys
 
 permissions:
   contents: read
