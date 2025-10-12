@@ -4,7 +4,11 @@ on:
   push:
     branches: '*'
   workflow_dispatch:
-  # leave blank to allow manual deploys
+    inputs:
+      key1:
+        description: 'key1 input example'
+        required: false
+    # leave blank to allow manual deploys
 
 permissions:
   contents: read
