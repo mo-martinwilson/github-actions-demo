@@ -2,7 +2,7 @@ name: AAAActions Testing with tag mock
 
 on:
   push:
-    branches: *
+    branches: '*'
 
 permissions:
   contents: read
