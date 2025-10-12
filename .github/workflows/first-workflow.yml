@@ -1,5 +1,9 @@
 name: AAAActions Testing with tag mock
 
+on:
+  push:
+    branches: *
+
 permissions:
   contents: read
 
