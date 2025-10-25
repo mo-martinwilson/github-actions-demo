@@ -1,0 +1,10 @@
+name: Workflow Runner Example
+
+on:
+    workflow_dispatch:
+
+jobs:
+    call-first-workflow:
+        uses: ./.github/workflows/first-workflow.yml
+        with:
+            key1: "example-value"

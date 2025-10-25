@@ -2,13 +2,19 @@ name: AAAActions Testing with tag mock
 
 on:
   push:
-    branches: '*'
+    branches: "*"
   workflow_dispatch:
     inputs:
       key1:
-        description: 'key1 input example'
+        description: "key1 input example"
         required: false
     # leave blank to allow manual deploys
+  workflow_call:
+    inputs:
+      key1:
+        description: "key1 input example"
+        required: false
+        type: string
 
 permissions:
   contents: read
