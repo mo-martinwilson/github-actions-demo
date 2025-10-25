@@ -9,12 +9,12 @@ on:
         description: "key1 input example"
         required: false
     # leave blank to allow manual deploys
-  workflow_call:
-    inputs:
-      key1:
-        description: "key1 input example"
-        required: false
-        type: string
+  # workflow_call:
+  #   inputs:
+  #     key1:
+  #       description: "key1 input example"
+  #       required: false
+  #       type: string
 
 permissions:
   contents: read
