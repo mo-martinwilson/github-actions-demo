@@ -25,32 +25,4 @@ jobs:
         with:
           name: pytest-coverage-report
           path: coverage_report.txt
-
-      # - name: Overwrite file
-      #   uses: "DamianReeves/write-file-action@master"
-      #   with:
-      #     path: filename.txt
-      #     write-mode: overwrite
-      #     contents: |
-      #       console.log('some contents')
-
-      # - name: Commit & Push
-      #   uses: Andro999b/push@v1.3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     branch: main
-      #     force: true
-      #     message: 'Overwritten by Github Actions - ${date}'
-      # - name: commitit
-      #   run: |
-      #     git config --local user.email "martin.wilson@metoffice.gov.uk"
-      #     git config --local user.name "GitHub Action"
-      #     git add scores
-      #     git commit -m "file updated"
-      #     "git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD"
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}       
-
-
-
             
